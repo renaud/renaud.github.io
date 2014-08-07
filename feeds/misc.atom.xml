@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Renaud Richardet</title><link href="/" rel="alternate"></link><link href="/feeds/misc.atom.xml" rel="self"></link><id>/</id><updated>2014-08-07T00:00:00+02:00</updated><entry><title>Theano and CUDA</title><link href="/theano-and-cuda.html" rel="alternate"></link><updated>2014-08-07T00:00:00+02:00</updated><author><name>Renaud Richardet</name></author><id>tag:,2014-08-07:theano-and-cuda.html</id><summary type="html">&lt;h2&gt;Theano on the CPU&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Renaud Richardet</title><link href="/" rel="alternate"></link><link href="/feeds/misc.atom.xml" rel="self"></link><id>/</id><updated>2014-08-07T00:00:00+02:00</updated><entry><title>Theano and CUDA</title><link href="/theano-and-cuda.html" rel="alternate"></link><updated>2014-08-07T00:00:00+02:00</updated><author><name>Renaud Richardet</name></author><id>tag:,2014-08-07:theano-and-cuda.html</id><summary type="html">&lt;h3&gt;Theano on the CPU&lt;/h3&gt;
 &lt;p&gt;Install Theano with&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;theano&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -7,7 +7,7 @@
 
 &lt;p&gt;Then try the mandatory MNIST tutorial from http://github.com/lisa-lab/DeepLearningTutorials/blob/master/code/DBN.py&lt;/p&gt;
 &lt;p&gt;It seems to works (still training), but takes time&lt;/p&gt;
-&lt;h2&gt;CUDA&lt;/h2&gt;
+&lt;h3&gt;CUDA&lt;/h3&gt;
 &lt;p&gt;Trying to make things faster&lt;/p&gt;
 &lt;p&gt;First, which card do I have?&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;lspci&lt;/span&gt;
@@ -30,7 +30,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;Install &amp;amp; configure CUDA on Ubuntu 12.04 LTS&lt;/h2&gt;
+&lt;h3&gt;Install &amp;amp; configure CUDA on Ubuntu 12.04 LTS&lt;/h3&gt;
 &lt;p&gt;From https://developer.nvidia.com/cuda-downloads#linux&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;wget&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//developer.download.nvidia.com/compute/cuda/repos/ubuntu1204/x86_64/cuda-repo-ubuntu1204_6.0-37_amd64.deb&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -68,7 +68,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;Configure for Theano&lt;/h2&gt;
+&lt;h3&gt;Configure for Theano&lt;/h3&gt;
 &lt;p&gt;From http://deeplearning.net/software/theano/install.html#gpu-linux
 Well, not much to configure...&lt;/p&gt;
 &lt;p&gt;Testing config: http://deeplearning.net/software/theano/tutorial/using_gpu.html#using-gpu&lt;/p&gt;
