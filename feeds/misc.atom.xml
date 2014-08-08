@@ -93,4 +93,12 @@ Well, not much to configure...&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Acceleration factor &lt;code&gt;9.0663 / 0.4946 = 18x&lt;/code&gt;, nice!&lt;/p&gt;</summary><category term="deeplearning"></category><category term="python"></category><category term="machinelearning"></category></entry></feed>
+&lt;p&gt;Acceleration factor &lt;code&gt;9.0663 / 0.4946 = 18x&lt;/code&gt;, nice!&lt;/p&gt;
+&lt;h2&gt;Running Thean Deep Belief Network sample&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/lisa-lab/DeepLearningTutorials&lt;/span&gt;
+&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;DeepLearningTutorials&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;
+&lt;span class="n"&gt;THEANO_FLAGS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;mode&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;FAST_RUN&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;device&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;gpu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;floatX&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;float32&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="n"&gt;DBN&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It is running ~10x faster than the CPU version, nice!&lt;/p&gt;</summary><category term="deeplearning"></category><category term="python"></category><category term="machinelearning"></category></entry></feed>
