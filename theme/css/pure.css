@@ -359,3 +359,17 @@ pre {
         background-position: 0;
     }
 }
+
+/* renaud */
+l, menu, ol, ul {
+    margin: 0em 0;
+}
+code {
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace, serif;
+    font-size: 0.9em;
+    padding: 1px 3px 0px;
+}

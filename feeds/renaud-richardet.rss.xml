@@ -1,5 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Renaud Richardet</title><link>/</link><description></description><atom:link href="/feeds/renaud-richardet.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 07 Aug 2014 00:00:00 +0200</lastBuildDate><item><title>Theano and CUDA</title><link>/theano-and-cuda.html</link><description>&lt;h3&gt;Theano on the CPU&lt;/h3&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Renaud Richardet</title><link>/</link><description></description><atom:link href="/feeds/renaud-richardet.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 21 Aug 2014 00:00:00 +0200</lastBuildDate><item><title>Easily deploying Apache RUTA projects as web services</title><link>/easily-deploying-apache-ruta-projects-as-web-services.html</link><description>&lt;h3&gt;TL;DR&lt;/h3&gt;
+&lt;p&gt;How to easily deploy your Apache RUTA project as a web service. No (Java) coding required :-)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;dowload &lt;a href="https://github.com/renaud/ruta_server/releases/download/20140821/ruta_server_20140821.zip"&gt;release&lt;/a&gt;, unzip and &lt;code&gt;cd&lt;/code&gt; into it&lt;/li&gt;
+&lt;li&gt;configure &lt;code&gt;application.properties&lt;/code&gt; and make it point to your RUTA project&lt;/li&gt;
+&lt;li&gt;start server &lt;code&gt;bin/ruta_server&lt;/code&gt; and check it at &lt;code&gt;http://localhost:8566/index.html&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Apache RUTA&lt;/h3&gt;
+&lt;p&gt;Ruta (&lt;a href="https://uima.apache.org/ruta.html"&gt;site&lt;/a&gt;, &lt;a href="https://uima.apache.org/d/ruta-current/tools.ruta.book.html"&gt;documentation&lt;/a&gt;) is a workbench to write NLP rules and test them. Apache RUTA is a great tool, and to expose it as a REST service (and thus allowing to annotate text), I created RUTA-server. It works with Linux, OS X, Windows, and requires a Java Runtime (1.7 or higher).&lt;/p&gt;
+&lt;h3&gt;First, let's create an Apache RUTA project:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;If you don't already have it: install Eclipse (&lt;a href="http://eclipse.org/downloads/"&gt;download&lt;/a&gt;), or use your own, if recent enough.&lt;/li&gt;
+&lt;li&gt;Install RUTA plugin&lt;ul&gt;
+&lt;li&gt;Help &amp;gt; Install New Software...&lt;/li&gt;
+&lt;li&gt;Work with: &lt;code&gt;http://www.apache.org/dist/uima/eclipse-update-site/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Add...&lt;ul&gt;
+&lt;li&gt;Name: RUTA, OK&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Select &lt;code&gt;Apache UIMA Eclipse tooling and runtime support&lt;/code&gt; and &lt;code&gt;Apache UIMA Ruta&lt;/code&gt;.&lt;ul&gt;
+&lt;li&gt;Next, Next, Finish&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Open Ruta Perspective&lt;ul&gt;
+&lt;li&gt;Window &amp;gt; Open Perspective &amp;gt; Other...&lt;/li&gt;
+&lt;li&gt;Select: Uima Ruta&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Create a new RUTA project&lt;ul&gt;
+&lt;li&gt;File &amp;gt; New &amp;gt; UIMA Ruta project, let's call it &lt;code&gt;ruta_server_example&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a RUTA script&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Click on the &lt;code&gt;script&lt;/code&gt; folder in &lt;code&gt;ruta_server_example&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;File &amp;gt; New &amp;gt; UIMA Ruta File, let's call it &lt;code&gt;Example.ruta&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add the following rules&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;DECLARE&lt;/span&gt; &lt;span class="n"&gt;Year&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="c1"&gt;// find something that maybe indicates the year: a number with four digits starting with 19 or 20&lt;/span&gt;
+&lt;span class="n"&gt;NUM&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;REGEXP&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;19..|20..&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;MARK&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Year&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)}&lt;/span&gt; &lt;span class="n"&gt;PM&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add a sample document &lt;code&gt;mytest.txt&lt;/code&gt; in &lt;code&gt;input&lt;/code&gt; folder, with the following content&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;    &lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt; &lt;span class="mi"&gt;1956&lt;/span&gt; &lt;span class="n"&gt;should&lt;/span&gt; &lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;annotated&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;but&lt;/span&gt; &lt;span class="mi"&gt;21231&lt;/span&gt; &lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;yet&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Run script&lt;/li&gt;
+&lt;li&gt;Open script &lt;code&gt;script/Example.ruta&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Right click, Debug As, UIMA Ruta&lt;/li&gt;
+&lt;li&gt;Open Console view to see progress, wait until it's &lt;code&gt;&amp;lt;terminated&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;View results&lt;/li&gt;
+&lt;li&gt;Open &lt;code&gt;output/mytest.txt.xmi&lt;/code&gt;&lt;ul&gt;
+&lt;li&gt;Select Type System &lt;code&gt;ExampleTypeSystem.xml&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Click on Eclipse View &lt;code&gt;Annotation Browser View&lt;/code&gt; (tabed window on the right)&lt;ul&gt;
+&lt;li&gt;Select checkboxes with the &lt;code&gt;Year&lt;/code&gt; annotation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;1956 only should be highlighted&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Now, let's start RUTA-server&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;First, dowload the &lt;a href="https://github.com/renaud/ruta_server/releases/download/20140821/ruta_server_20140821.zip"&gt;release&lt;/a&gt;, unzip it and &lt;code&gt;cd&lt;/code&gt; into it.&lt;/li&gt;
+&lt;li&gt;Then, configure &lt;code&gt;application.properties&lt;/code&gt;&lt;ul&gt;
+&lt;li&gt;You need to specify the root path of the RUTA project. In our example, it is the folder in which you created the above RUTA project.&lt;/li&gt;
+&lt;li&gt;Also, you need to tell the name of the RUTA engine, in our case it is &lt;code&gt;descriptor/ExampleEngine.xml&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Also, we can specify which&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Finally, start the server by typing in a terminal &lt;code&gt;sh bin/ruta_server&lt;/code&gt;&lt;ul&gt;
+&lt;li&gt;The web service is at  &lt;a href="http://localhost:8566/annotate.json?text=The%20year%201956%20should%20get%20annotated%20but%2021231%20not"&gt;http://localhost:8566/annotate.json&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;I also created a small &lt;a href="http://localhost:8566/index.html"&gt;html demo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Renaud Richardet</dc:creator><pubDate>Thu, 21 Aug 2014 00:00:00 +0200</pubDate><guid>tag:,2014-08-21:easily-deploying-apache-ruta-projects-as-web-services.html</guid><category>apache_uima</category></item><item><title>Theano and CUDA</title><link>/theano-and-cuda.html</link><description>&lt;h3&gt;Theano on the CPU&lt;/h3&gt;
 &lt;p&gt;Install Theano with&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;theano&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -101,4 +189,15 @@ Well, not much to configure...&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;It is running ~10x faster than the CPU version, nice!&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Renaud Richardet</dc:creator><pubDate>Thu, 07 Aug 2014 00:00:00 +0200</pubDate><guid>tag:,2014-08-07:theano-and-cuda.html</guid><category>deeplearning</category><category>python</category><category>machinelearning</category></item></channel></rss>
+&lt;p&gt;It is running ~10x faster than the CPU version, nice!&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Renaud Richardet</dc:creator><pubDate>Thu, 07 Aug 2014 00:00:00 +0200</pubDate><guid>tag:,2014-08-07:theano-and-cuda.html</guid><category>deeplearning</category><category>python</category><category>machinelearning</category></item><item><title>JOIN in SQL UPDATE statement</title><link>/join-in-sql-update-statement.html</link><description>&lt;p&gt;MySQL&lt;/p&gt;
+&lt;p&gt;JOIN in SQL UPDATE statement, differences between MS SQL and MySQL
+MySQL:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;UPDATE&lt;/span&gt; &lt;span class="n"&gt;contact&lt;/span&gt; &lt;span class="n"&gt;SET&lt;/span&gt; &lt;span class="n"&gt;contact&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;company_fk&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;team&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;company_fk&lt;/span&gt; &lt;span class="n"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;contact&lt;/span&gt;
+&lt;span class="n"&gt;INNER&lt;/span&gt; &lt;span class="n"&gt;JOIN&lt;/span&gt; &lt;span class="n"&gt;team&lt;/span&gt; &lt;span class="n"&gt;ON&lt;/span&gt; &lt;span class="n"&gt;team&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;contact&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;team_fk&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;MS SQL:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;UPDATE&lt;/span&gt; &lt;span class="n"&gt;contact&lt;/span&gt; &lt;span class="n"&gt;INNER&lt;/span&gt; &lt;span class="n"&gt;JOIN&lt;/span&gt; &lt;span class="n"&gt;team&lt;/span&gt; &lt;span class="n"&gt;ON&lt;/span&gt; &lt;span class="n"&gt;team&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;contact&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;team_fk&lt;/span&gt; &lt;span class="n"&gt;SET&lt;/span&gt;
+&lt;span class="n"&gt;contact&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;company_fk&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;team&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;company_fk&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Renaud Richardet</dc:creator><pubDate>Wed, 11 May 2011 00:00:00 +0200</pubDate><guid>tag:,2011-05-11:join-in-sql-update-statement.html</guid><category>sql</category></item></channel></rss>
