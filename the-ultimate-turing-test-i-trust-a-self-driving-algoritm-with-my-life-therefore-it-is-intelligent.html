@@ -7,7 +7,7 @@
 
         <link rel="alternate"  href="/feeds/all.atom.xml" type="application/atom+xml" title="Renaud Richardet Full Atom Feed"/>
 
-        <title>JOIN in SQL UPDATE statement // Renaud Richardet // I eat data for breakfast</title>
+        <title>The ultimate Turing test: I trust a (self-driving) algoritm with my life, therefore it is intelligent // Renaud Richardet // I eat data for breakfast</title>
 
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
@@ -34,7 +34,7 @@
                 <h2 class="article-info">Renaud Richardet</h2>
                 <small class="about-author"></small>
                 <!-- <h5>Published</h5> -->
-                <p>11 May 2011</p>
+                <p>17 December 2015</p>
                 <a href="/">&larr;Home</a>
             </hgroup>
         </header>
@@ -43,24 +43,19 @@
         <div class="content">
             <section class="post">
                 <header class="post-header">
-                    <h1>JOIN in SQL UPDATE statement</h1>
+                    <h1>The ultimate Turing test: I trust a (self-driving) algoritm with my life, therefore it is intelligent</h1>
                         <p class="post-meta">
-                            // under                                 <a class="post-category" href="/tag/sql.html">sql</a>
+                            // under                                 <a class="post-category" href="/tag/machine_learning.html">machine_learning</a>
                         </p>
                 </header>
             </section>
-            <p>MySQL</p>
-<p>JOIN in SQL UPDATE statement, differences between MS SQL and MySQL
-MySQL:</p>
-<div class="highlight"><pre>UPDATE contact SET contact.company_fk = team.company_fk FROM contact
-INNER JOIN team ON team.id = contact.team_fk
-</pre></div>
-
-
-<p>MS SQL:</p>
-<div class="highlight"><pre>UPDATE contact INNER JOIN team ON team.id = contact.team_fk SET
-contact.company_fk = team.company_fk
-</pre></div>
+            <p>From <a href="https://www.teslamotors.com/support/correction-article-first-person-hack-iphone-built-self-driving-car">Tesla's</a> Correction to article: "The First Person to Hack the iPhone Built a Self-Driving Car":</p>
+<p><em>This is the true problem of autonomy: getting a machine learning system to be 99% correct is relatively easy, but getting it to be 99.9999% correct, which is where it ultimately needs to be, is vastly more difficult.</em></p>
+<p>So Tesla is aiming at a system that is correct 99.9999% of the time; or put differently: that is wrong 0.0001% of the time. </p>
+<p>A daily 1h-commute translates to 900,000 seconds per year (5d/week * 50weeks/year * 1h * 3600secs/h). Thus, theoretically such a self-driving system would be 'wrong' 1 second per year (0.0001% of 900,000 seconds).</p>
+<p>Now, <strong>what does this one wrong second means?</strong> What does it mean for a self-driving system to be <em>wrong</em> ? Does it fail to turn when it should (a <em>false negative</em> )? Does it turn when it should not (a <em>false positive</em> )? In both cases, does it result in a crash? Do I get killed during that one wrong second? Does somebody else get killed? Who is responsible?</p>
+<p>For me, what matters are the <strong>implications</strong> of that one wrong second. It means I am willing to trust my life (and the life of others, within or outside of my car) on an algorithm. Well, of course we already delegate a lot of the trust when driving a car. For example I trust that when I push the break pedal, the car will slow down. The chain of events is quite straightforward: pushing the pedal moves oil down the break hoses, pushing the break pads against the discs. But trusting a (machine learning) algorithm is a whole different story. We do not control the flow of events. That is the whole point of machine learning: not having to explicitly encode the system representations and its states. </p>
+<p>Maybe this is the ultimate Turing test: <strong>I trust a (self-driving) algoritm with my life, therefore it is intelligent</strong>.</p>
             <div class="hr"></div>
             <a href="#" class="go-top">Go Top</a>
 <div class="comments">

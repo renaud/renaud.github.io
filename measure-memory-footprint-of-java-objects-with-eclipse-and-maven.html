@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Renaud Richardet, I eat data for breakfast">
+
+        <link rel="alternate"  href="/feeds/all.atom.xml" type="application/atom+xml" title="Renaud Richardet Full Atom Feed"/>
+
+        <title>Measure memory footprint of Java objects with Eclipse and Maven // Renaud Richardet // I eat data for breakfast</title>
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/theme/css/pure.css">
+    <link rel="stylesheet" href="/theme/css/pygments.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.0.1/jquery.fitvids.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".content").fitVids();
+        });
+    </script>
+</head>
+
+<body>
+<div class="pure-g-r" id="layout">
+    <div class="sidebar sidebar-article pure-u">
+        <header class="header-article">
+            <hgroup>
+                <a href="/author/renaud-richardet.html" title="See posts by Renaud Richardet">
+                </a>
+                <h2 class="article-info">Renaud Richardet</h2>
+                <small class="about-author"></small>
+                <!-- <h5>Published</h5> -->
+                <p>18 February 2015</p>
+                <a href="/">&larr;Home</a>
+            </hgroup>
+        </header>
+    </div>
+    <div class="pure-u">
+        <div class="content">
+            <section class="post">
+                <header class="post-header">
+                    <h1>Measure memory footprint of Java objects with Eclipse and Maven</h1>
+                        <p class="post-meta">
+                            // under                                 <a class="post-category" href="/tag/java-maven-profiling.html">java maven profiling</a>
+                        </p>
+                </header>
+            </section>
+            <p>Sometimes I need to know the exact size of a Java object, and that can be tricky to compute by hand. Here is a way within Eclipse and a Maven project.</p>
+<p><a href="http://www.javamex.com/classmexer/classmexer-0_03.zip">Download</a>, copy it to e.g. <code>src/test/resources/memory/classmexer.jar</code> and add it to your project, e.g. </p>
+<div class="highlight"><pre><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>classmexer<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>classmexer<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>0.3<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;scope&gt;</span>system<span class="nt">&lt;/scope&gt;</span>
+  <span class="nt">&lt;systemPath&gt;</span><span class="cp">${</span><span class="n">basedir</span><span class="cp">}</span>/src/test/resources/memory/classmexer.jar<span class="nt">&lt;/systemPath&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+
+<p>Instantiate the agent</p>
+<ol>
+<li>Run &gt; Run Configurations...</li>
+<li>Select the class or test</li>
+<li>Tab "Arguments", box "VM arguments:", add <code>-javaagent:src/test/resources/memory/classmexer.jar</code></li>
+</ol>
+<p>Measure the memory of java objects</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">static</span> <span class="nn">com.javamex.classmexer.MemoryUtil.deepMemoryUsageOf</span><span class="p">;</span>
+
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">mymap</span> <span class="o">=</span> <span class="n">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">mymap</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&quot;hello&quot;</span><span class="p">);</span>
+<span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">deepMemoryUsageOf</span><span class="p">(</span><span class="n">mymap</span><span class="p">));</span>
+<span class="n">mymap</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">);</span>
+<span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">deepMemoryUsageOf</span><span class="p">(</span><span class="n">mymap</span><span class="p">));</span>
+<span class="n">mymap</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s">&quot;world&quot;</span><span class="p">);</span>
+<span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">deepMemoryUsageOf</span><span class="p">(</span><span class="n">mymap</span><span class="p">));</span>
+
+<span class="mi">240</span>
+<span class="mi">336</span>
+<span class="mi">440</span>
+</pre></div>
+            <div class="hr"></div>
+            <a href="#" class="go-top">Go Top</a>
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = "Renaud Richardet"; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div><footer class="footer">
+    <p>&copy; Renaud Richardet &ndash;
+        Built with <a href="https://github.com/PurePelicanTheme/pure">Pure Theme</a>
+        for <a href="http://blog.getpelican.com/">Pelican</a>
+    </p>
+</footer>        </div>
+    </div>
+</div>
+    <script>
+        var $top = $('.go-top');
+
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $top.fadeIn(200);
+            } else {
+                $top.fadeOut(200);
+            }
+        });
+
+        // Animate the scroll to top
+        $top.click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 300);
+        })
+
+        // Makes sure that the href="#" attached to the <a> elements
+        // don't scroll you back up the page.
+        $('body').on('click', 'a[href="#"]', function(event) {
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>

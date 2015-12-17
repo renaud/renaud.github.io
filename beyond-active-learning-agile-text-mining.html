@@ -7,7 +7,7 @@
 
         <link rel="alternate"  href="/feeds/all.atom.xml" type="application/atom+xml" title="Renaud Richardet Full Atom Feed"/>
 
-        <title>JOIN in SQL UPDATE statement // Renaud Richardet // I eat data for breakfast</title>
+        <title>Beyond active learning: Agile Text Mining // Renaud Richardet // I eat data for breakfast</title>
 
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css">
@@ -34,7 +34,7 @@
                 <h2 class="article-info">Renaud Richardet</h2>
                 <small class="about-author"></small>
                 <!-- <h5>Published</h5> -->
-                <p>11 May 2011</p>
+                <p>25 August 2014</p>
                 <a href="/">&larr;Home</a>
             </hgroup>
         </header>
@@ -43,24 +43,18 @@
         <div class="content">
             <section class="post">
                 <header class="post-header">
-                    <h1>JOIN in SQL UPDATE statement</h1>
+                    <h1>Beyond active learning: Agile Text Mining</h1>
                         <p class="post-meta">
-                            // under                                 <a class="post-category" href="/tag/sql.html">sql</a>
+                            // under                                 <a class="post-category" href="/tag/machine_learning.html">machine_learning</a>
+                                <a class="post-category" href="/tag/text_mining.html">text_mining</a>
+                                <a class="post-category" href="/tag/nlp.html">nlp</a>
                         </p>
                 </header>
             </section>
-            <p>MySQL</p>
-<p>JOIN in SQL UPDATE statement, differences between MS SQL and MySQL
-MySQL:</p>
-<div class="highlight"><pre>UPDATE contact SET contact.company_fk = team.company_fk FROM contact
-INNER JOIN team ON team.id = contact.team_fk
-</pre></div>
-
-
-<p>MS SQL:</p>
-<div class="highlight"><pre>UPDATE contact INNER JOIN team ON team.id = contact.team_fk SET
-contact.company_fk = team.company_fk
-</pre></div>
+            <p>One of the most heated debate at the <a href="http://strataconf.com/strata2012">Strata 2012 conference</a> was about <strong>whether domain expertise is more important than machine learning skills</strong> (see <a href="http://medriscoll.com/post/18784448854/the-data-science-debate-domain-expertise-or-machine">Mike Driscoll’s summary</a> and <a href="http://player.oreilly.com/videos/0636920025467#embedded_player">full video from the debate</a>). KD Nuggets even ran a <a href="http://www.kdnuggets.com/2012/04/sceptical-of-machine-learning.html">poll on the subject</a></p>
+<p>For me (and others like <a href="http://jtonedm.com/2012/04/05/is-machine-learning-v-domain-expertise-the-wrong-question/">James Taylor</a>) this is the wrong question to ask. It is like asking whether milk or flour is more important when baking pancakes.</p>
+<p>Which led to the formulation of the <strong>Agile Text Mining</strong> methodology:</p>
+<p><em>The successful development of an intelligent text mining application requires the collaboration of two main stakeholders: subject matter experts and text miners. In this paper, we describe a new methodology, agile text mining to improve that collaboration. Agile text mining is characterized by short development cycles, frequent tasks redefinition and continuous performance monitoring through integration tests. We introduce Sherlok, a system supporting the development of agile text mining applications and present an application to extract mention of neurons from a very large corpus of scientific articles. The resulting code and models are publicly available at http://sherlok.io</em> (<a href="https://dl.dropboxusercontent.com/u/975350/papers/Richardet_agile_text_mining_2015.pdf">full article</a>, published in IEEE)</p>
             <div class="hr"></div>
             <a href="#" class="go-top">Go Top</a>
 <div class="comments">

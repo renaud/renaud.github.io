@@ -1,5 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Renaud Richardet</title><link href="/" rel="alternate"></link><link href="/feeds/misc.atom.xml" rel="self"></link><id>/</id><updated>2014-08-21T00:00:00+02:00</updated><entry><title>Easily deploying Apache RUTA projects as web services</title><link href="/easily-deploying-apache-ruta-projects-as-web-services.html" rel="alternate"></link><updated>2014-08-21T00:00:00+02:00</updated><author><name>Renaud Richardet</name></author><id>tag:,2014-08-21:easily-deploying-apache-ruta-projects-as-web-services.html</id><summary type="html">&lt;h3&gt;TL;DR&lt;/h3&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Renaud Richardet</title><link href="/" rel="alternate"></link><link href="/feeds/misc.atom.xml" rel="self"></link><id>/</id><updated>2015-12-17T00:00:00+01:00</updated><entry><title>The ultimate Turing test: I trust a (self-driving) algoritm with my life, therefore it is intelligent</title><link href="/the-ultimate-turing-test-i-trust-a-self-driving-algoritm-with-my-life-therefore-it-is-intelligent.html" rel="alternate"></link><updated>2015-12-17T00:00:00+01:00</updated><author><name>Renaud Richardet</name></author><id>tag:,2015-12-17:the-ultimate-turing-test-i-trust-a-self-driving-algoritm-with-my-life-therefore-it-is-intelligent.html</id><summary type="html">&lt;p&gt;From &lt;a href="https://www.teslamotors.com/support/correction-article-first-person-hack-iphone-built-self-driving-car"&gt;Tesla's&lt;/a&gt; Correction to article: "The First Person to Hack the iPhone Built a Self-Driving Car":&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This is the true problem of autonomy: getting a machine learning system to be 99% correct is relatively easy, but getting it to be 99.9999% correct, which is where it ultimately needs to be, is vastly more difficult.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;So Tesla is aiming at a system that is correct 99.9999% of the time; or put differently: that is wrong 0.0001% of the time. &lt;/p&gt;
+&lt;p&gt;A daily 1h-commute translates to 900,000 seconds per year (5d/week * 50weeks/year * 1h * 3600secs/h). Thus, theoretically such a self-driving system would be 'wrong' 1 second per year (0.0001% of 900,000 seconds).&lt;/p&gt;
+&lt;p&gt;Now, &lt;strong&gt;what does this one wrong second means?&lt;/strong&gt; What does it mean for a self-driving system to be &lt;em&gt;wrong&lt;/em&gt; ? Does it fail to turn when it should (a &lt;em&gt;false negative&lt;/em&gt; )? Does it turn when it should not (a &lt;em&gt;false positive&lt;/em&gt; )? In both cases, does it result in a crash? Do I get killed during that one wrong second? Does somebody else get killed? Who is responsible?&lt;/p&gt;
+&lt;p&gt;For me, what matters are the &lt;strong&gt;implications&lt;/strong&gt; of that one wrong second. It means I am willing to trust my life (and the life of others, within or outside of my car) on an algorithm. Well, of course we already delegate a lot of the trust when driving a car. For example I trust that when I push the break pedal, the car will slow down. The chain of events is quite straightforward: pushing the pedal moves oil down the break hoses, pushing the break pads against the discs. But trusting a (machine learning) algorithm is a whole different story. We do not control the flow of events. That is the whole point of machine learning: not having to explicitly encode the system representations and its states. &lt;/p&gt;
+&lt;p&gt;Maybe this is the ultimate Turing test: &lt;strong&gt;I trust a (self-driving) algoritm with my life, therefore it is intelligent&lt;/strong&gt;.&lt;/p&gt;</summary><category term="machine_learning"></category></entry><entry><title>Measure memory footprint of Java objects with Eclipse and Maven</title><link href="/measure-memory-footprint-of-java-objects-with-eclipse-and-maven.html" rel="alternate"></link><updated>2015-02-18T00:00:00+01:00</updated><author><name>Renaud Richardet</name></author><id>tag:,2015-02-18:measure-memory-footprint-of-java-objects-with-eclipse-and-maven.html</id><summary type="html">&lt;p&gt;Sometimes I need to know the exact size of a Java object, and that can be tricky to compute by hand. Here is a way within Eclipse and a Maven project.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.javamex.com/classmexer/classmexer-0_03.zip"&gt;Download&lt;/a&gt;, copy it to e.g. &lt;code&gt;src/test/resources/memory/classmexer.jar&lt;/code&gt; and add it to your project, e.g. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;classmexer&lt;span class="nt"&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;classmexer&lt;span class="nt"&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;version&amp;gt;&lt;/span&gt;0.3&lt;span class="nt"&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;scope&amp;gt;&lt;/span&gt;system&lt;span class="nt"&gt;&amp;lt;/scope&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;systemPath&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;basedir&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;/src/test/resources/memory/classmexer.jar&lt;span class="nt"&gt;&amp;lt;/systemPath&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Instantiate the agent&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Run &amp;gt; Run Configurations...&lt;/li&gt;
+&lt;li&gt;Select the class or test&lt;/li&gt;
+&lt;li&gt;Tab "Arguments", box "VM arguments:", add &lt;code&gt;-javaagent:src/test/resources/memory/classmexer.jar&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Measure the memory of java objects&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;static&lt;/span&gt; &lt;span class="nn"&gt;com.javamex.classmexer.MemoryUtil.deepMemoryUsageOf&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;Map&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;mymap&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;HashMap&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;Integer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="n"&gt;mymap&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;put&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;deepMemoryUsageOf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mymap&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;span class="n"&gt;mymap&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;put&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;deepMemoryUsageOf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mymap&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;span class="n"&gt;mymap&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;put&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;world&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;deepMemoryUsageOf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mymap&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+
+&lt;span class="mi"&gt;240&lt;/span&gt;
+&lt;span class="mi"&gt;336&lt;/span&gt;
+&lt;span class="mi"&gt;440&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="java maven profiling"></category></entry><entry><title>Beyond active learning: Agile Text Mining</title><link href="/beyond-active-learning-agile-text-mining.html" rel="alternate"></link><updated>2014-08-25T00:00:00+02:00</updated><author><name>Renaud Richardet</name></author><id>tag:,2014-08-25:beyond-active-learning-agile-text-mining.html</id><summary type="html">&lt;p&gt;One of the most heated debate at the &lt;a href="http://strataconf.com/strata2012"&gt;Strata 2012 conference&lt;/a&gt; was about &lt;strong&gt;whether domain expertise is more important than machine learning skills&lt;/strong&gt; (see &lt;a href="http://medriscoll.com/post/18784448854/the-data-science-debate-domain-expertise-or-machine"&gt;Mike Driscoll’s summary&lt;/a&gt; and &lt;a href="http://player.oreilly.com/videos/0636920025467#embedded_player"&gt;full video from the debate&lt;/a&gt;). KD Nuggets even ran a &lt;a href="http://www.kdnuggets.com/2012/04/sceptical-of-machine-learning.html"&gt;poll on the subject&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For me (and others like &lt;a href="http://jtonedm.com/2012/04/05/is-machine-learning-v-domain-expertise-the-wrong-question/"&gt;James Taylor&lt;/a&gt;) this is the wrong question to ask. It is like asking whether milk or flour is more important when baking pancakes.&lt;/p&gt;
+&lt;p&gt;Which led to the formulation of the &lt;strong&gt;Agile Text Mining&lt;/strong&gt; methodology:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The successful development of an intelligent text mining application requires the collaboration of two main stakeholders: subject matter experts and text miners. In this paper, we describe a new methodology, agile text mining to improve that collaboration. Agile text mining is characterized by short development cycles, frequent tasks redefinition and continuous performance monitoring through integration tests. We introduce Sherlok, a system supporting the development of agile text mining applications and present an application to extract mention of neurons from a very large corpus of scientific articles. The resulting code and models are publicly available at http://sherlok.io&lt;/em&gt; (&lt;a href="https://dl.dropboxusercontent.com/u/975350/papers/Richardet_agile_text_mining_2015.pdf"&gt;full article&lt;/a&gt;, published in IEEE)&lt;/p&gt;</summary><category term="machine_learning"></category><category term="text_mining"></category><category term="nlp"></category></entry><entry><title>Easily deploying Apache RUTA projects as web services</title><link href="/easily-deploying-apache-ruta-projects-as-web-services.html" rel="alternate"></link><updated>2014-08-21T00:00:00+02:00</updated><author><name>Renaud Richardet</name></author><id>tag:,2014-08-21:easily-deploying-apache-ruta-projects-as-web-services.html</id><summary type="html">&lt;h3&gt;TL;DR&lt;/h3&gt;
 &lt;p&gt;How to easily deploy your Apache RUTA project as a web service. No (Java) coding required :-)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;dowload &lt;a href="https://github.com/renaud/ruta_server/releases/download/20140821/ruta_server_20140821.zip"&gt;release&lt;/a&gt;, unzip and &lt;code&gt;cd&lt;/code&gt; into it&lt;/li&gt;
@@ -7,7 +48,7 @@
 &lt;li&gt;start server &lt;code&gt;bin/ruta_server&lt;/code&gt; and check it at &lt;code&gt;http://localhost:8566/index.html&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Apache RUTA&lt;/h3&gt;
-&lt;p&gt;Ruta (&lt;a href="https://uima.apache.org/ruta.html"&gt;site&lt;/a&gt;, &lt;a href="https://uima.apache.org/d/ruta-current/tools.ruta.book.html"&gt;documentation&lt;/a&gt;) is a workbench to write NLP rules and test them. Apache RUTA is a great tool, and to expose it as a REST service (and thus allowing to annotate text), I created RUTA-server. It works with Linux, OS X, Windows, and requires a Java Runtime (1.7 or higher).&lt;/p&gt;
+&lt;p&gt;Ruta (&lt;a href="https://uima.apache.org/ruta.html"&gt;site&lt;/a&gt;, &lt;a href="https://uima.apache.org/d/ruta-current/tools.ruta.book.html"&gt;documentation&lt;/a&gt;) is a workbench to write NLP rules and test them. Apache RUTA is a great tool, and to expose it as a REST service (and thus allowing to annotate text), I created &lt;a href=""&gt;RUTA-server&lt;/a&gt;. It works with Linux, OS X, Windows, and requires a Java Runtime (1.7 or higher).&lt;/p&gt;
 &lt;h3&gt;First, let's create an Apache RUTA project:&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;If you don't already have it: install Eclipse (&lt;a href="http://eclipse.org/downloads/"&gt;download&lt;/a&gt;), or use your own, if recent enough.&lt;/li&gt;
@@ -38,11 +79,9 @@
 &lt;ul&gt;
 &lt;li&gt;Click on the &lt;code&gt;script&lt;/code&gt; folder in &lt;code&gt;ruta_server_example&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;File &amp;gt; New &amp;gt; UIMA Ruta File, let's call it &lt;code&gt;Example.ruta&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Add the following rules&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;DECLARE&lt;/span&gt; &lt;span class="n"&gt;Year&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="c1"&gt;// find something that maybe indicates the year: a number with four digits starting with 19 or 20&lt;/span&gt;
-&lt;span class="n"&gt;NUM&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;REGEXP&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;19..|20..&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;MARK&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Year&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)}&lt;/span&gt; &lt;span class="n"&gt;PM&lt;/span&gt;&lt;span class="o"&gt;?&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;li&gt;Add the following rules&lt;div class="highlight"&gt;&lt;pre&gt;DECLARE Year;
+// find something that maybe indicates the year: a number with four digits starting with 19 or 20
+NUM{REGEXP(&amp;quot;19..|20..&amp;quot;) -&amp;gt; MARK(Year,1,2)} PM?;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -51,7 +90,7 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Add a sample document &lt;code&gt;mytest.txt&lt;/code&gt; in &lt;code&gt;input&lt;/code&gt; folder, with the following content&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;    &lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;year&lt;/span&gt; &lt;span class="mi"&gt;1956&lt;/span&gt; &lt;span class="n"&gt;should&lt;/span&gt; &lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;annotated&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;but&lt;/span&gt; &lt;span class="mi"&gt;21231&lt;/span&gt; &lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;yet&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;    The year 1956 should get annotated, but 21231 not (yet).
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -83,13 +122,13 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Finally, start the server by typing in a terminal &lt;code&gt;sh bin/ruta_server&lt;/code&gt;&lt;ul&gt;
-&lt;li&gt;The web service is at  &lt;a href="http://localhost:8566/annotate.json?text=The%20year%201956%20should%20get%20annotated%20but%2021231%20not"&gt;http://localhost:8566/annotate.json&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The web service is at  &lt;a href="http://localhost:8566/annotate.json?text=The year 1956 should get annotated but 21231 not"&gt;http://localhost:8566/annotate.json&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;I also created a small &lt;a href="http://localhost:8566/index.html"&gt;html demo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</summary><category term="apache_uima"></category></entry><entry><title>Theano and CUDA</title><link href="/theano-and-cuda.html" rel="alternate"></link><updated>2014-08-07T00:00:00+02:00</updated><author><name>Renaud Richardet</name></author><id>tag:,2014-08-07:theano-and-cuda.html</id><summary type="html">&lt;h3&gt;Theano on the CPU&lt;/h3&gt;
 &lt;p&gt;Install Theano with&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pip&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;theano&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pip install theano
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -98,61 +137,61 @@
 &lt;h3&gt;CUDA&lt;/h3&gt;
 &lt;p&gt;Trying to make things faster&lt;/p&gt;
 &lt;p&gt;First, which card do I have?&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;lspci&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;search&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;card&lt;/span&gt; &lt;span class="n"&gt;there&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;GeForce&lt;/span&gt; &lt;span class="n"&gt;GTX&lt;/span&gt; &lt;span class="mi"&gt;560&lt;/span&gt; &lt;span class="n"&gt;Ti&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;$&amp;gt; lspci
+(and search for your card there)
+GeForce GTX 560 Ti
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;I found some info there:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nl"&gt;http:&lt;/span&gt;&lt;span class="c1"&gt;//www.nvidia.com/object/product-geforce-gtx-560ti-gtx-550ti-us.html&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;http://www.nvidia.com/object/product-geforce-gtx-560ti-gtx-550ti-us.html
 
-&lt;span class="n"&gt;CUDA&lt;/span&gt; &lt;span class="n"&gt;Cores&lt;/span&gt;  &lt;span class="mi"&gt;384&lt;/span&gt;
-&lt;span class="n"&gt;Graphics&lt;/span&gt; &lt;span class="n"&gt;Clock&lt;/span&gt;  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MHz&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;    &lt;span class="mi"&gt;822&lt;/span&gt;
-&lt;span class="n"&gt;Processor&lt;/span&gt; &lt;span class="n"&gt;Clock&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MHz&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;   &lt;span class="mi"&gt;1645&lt;/span&gt;
-&lt;span class="n"&gt;Memory&lt;/span&gt; &lt;span class="n"&gt;Specs&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;   
- &lt;span class="n"&gt;Standard&lt;/span&gt; &lt;span class="n"&gt;Memory&lt;/span&gt; &lt;span class="n"&gt;Config&lt;/span&gt;  &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;GB&lt;/span&gt;
-&lt;span class="n"&gt;Feature&lt;/span&gt; &lt;span class="n"&gt;Support&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;    
- &lt;span class="n"&gt;NVIDIA&lt;/span&gt; &lt;span class="n"&gt;CUDA&lt;/span&gt; &lt;span class="n"&gt;Technology&lt;/span&gt; 
- &lt;span class="n"&gt;OpenGL&lt;/span&gt;  &lt;span class="mf"&gt;4.1&lt;/span&gt;
+CUDA Cores  384
+Graphics Clock  (MHz)    822
+Processor Clock (MHz)   1645
+Memory Specs:   
+ Standard Memory Config  1GB
+Feature Support:    
+ NVIDIA CUDA Technology 
+ OpenGL  4.1
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h3&gt;Install &amp;amp; configure CUDA on Ubuntu 12.04 LTS&lt;/h3&gt;
 &lt;p&gt;From https://developer.nvidia.com/cuda-downloads#linux&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;wget&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//developer.download.nvidia.com/compute/cuda/repos/ubuntu1204/x86_64/cuda-repo-ubuntu1204_6.0-37_amd64.deb&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1204/x86_64/cuda-repo-ubuntu1204_6.0-37_amd64.deb
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;From http://www.r-tutor.com/gpu-computing/cuda-installation/cuda6.0-ubuntu&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;dpkg&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;repo&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;ubuntu1204_6&lt;/span&gt;&lt;span class="mf"&gt;.0&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;37&lt;/span&gt;&lt;span class="n"&gt;_amd64&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;deb&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;update&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;cuda&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo dpkg -i cuda-repo-ubuntu1204_6.0-37_amd64.deb
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get update
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get install cuda
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Testing:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;richarde&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;SV&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;38&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;05&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="o"&gt;:~&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;nvcc&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;version&lt;/span&gt;
-&lt;span class="nl"&gt;nvcc:&lt;/span&gt; &lt;span class="n"&gt;NVIDIA&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;R&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;Cuda&lt;/span&gt; &lt;span class="n"&gt;compiler&lt;/span&gt; &lt;span class="n"&gt;driver&lt;/span&gt;
-&lt;span class="n"&gt;Built&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;Thu_Mar_13_11&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;58&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;58&lt;/span&gt;&lt;span class="n"&gt;_PDT_2014&lt;/span&gt;
-&lt;span class="n"&gt;Cuda&lt;/span&gt; &lt;span class="n"&gt;compilation&lt;/span&gt; &lt;span class="n"&gt;tools&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;release&lt;/span&gt; &lt;span class="mf"&gt;6.0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;V6&lt;/span&gt;&lt;span class="mf"&gt;.0.1&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;richarde@SV-38-059:~$ nvcc --version
+nvcc: NVIDIA (R) Cuda compiler driver
+Built on Thu_Mar_13_11:58:58_PDT_2014
+Cuda compilation tools, release 6.0, V6.0.1
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Parenthesis: This did not work&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;wget&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//developer.download.nvidia.com/compute/cuda/6_0/rel/installers/cuda_6.0.37_linux_64.run&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="n"&gt;cuda_6&lt;/span&gt;&lt;span class="mf"&gt;.0.37&lt;/span&gt;&lt;span class="n"&gt;_linux_64&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="x"&gt;wget http://developer.download.nvidia.com/compute/cuda/6_0/rel/installers/cuda_6.0.37_linux_64.run&lt;/span&gt;
+&lt;span class="x"&gt;sudo sh cuda_6.0.37_linux_64.run&lt;/span&gt;
 
-&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;Please&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;sure&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt; &lt;span class="n"&gt;includes&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;
-&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;Please&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;sure&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;LD_LIBRARY_PATH&lt;/span&gt;
-&lt;span class="o"&gt;*&lt;/span&gt;   &lt;span class="n"&gt;includes&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib64&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib&lt;/span&gt;
-&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;OR&lt;/span&gt;
-&lt;span class="o"&gt;*&lt;/span&gt;   &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib64&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib&lt;/span&gt;
-&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ld&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;so&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;conf&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt; &lt;span class="n"&gt;ldconfig&lt;/span&gt; &lt;span class="n"&gt;as&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;
+&lt;span class="x"&gt;* Please make sure your PATH includes /usr/local/cuda/bin&lt;/span&gt;
+&lt;span class="x"&gt;* Please make sure your LD_LIBRARY_PATH&lt;/span&gt;
+&lt;span class="x"&gt;*   includes /usr/local/cuda/lib64:/usr/local/cuda/lib&lt;/span&gt;
+&lt;span class="x"&gt;* OR&lt;/span&gt;
+&lt;span class="x"&gt;*   add /usr/local/cuda/lib64 and /usr/local/cuda/lib&lt;/span&gt;
+&lt;span class="x"&gt;* to /etc/ld.so.conf and run ldconfig as root&lt;/span&gt;
 
-&lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;bashrc&lt;/span&gt;
-&lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;
-&lt;span class="n"&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib64&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib&lt;/span&gt;
+&lt;span class="x"&gt;vim .bashrc&lt;/span&gt;
+&lt;span class="x"&gt;PATH=&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="x"&gt;:/usr/local/cuda/bin&lt;/span&gt;
+&lt;span class="x"&gt;LD_LIBRARY_PATH=&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class="x"&gt;:/usr/local/cuda/lib64:/usr/local/cuda/lib&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -160,44 +199,44 @@
 &lt;p&gt;From http://deeplearning.net/software/theano/install.html#gpu-linux
 Well, not much to configure...&lt;/p&gt;
 &lt;p&gt;Testing config: http://deeplearning.net/software/theano/tutorial/using_gpu.html#using-gpu&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;richarde&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="c1"&gt;//theano&lt;/span&gt;
-&lt;span class="n"&gt;THEANO_FLAGS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;mode&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;FAST_RUN&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;device&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;gpu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;floatX&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;float32&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="n"&gt;check1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;cd /home/richarde/dev//theano
+THEANO_FLAGS=&amp;#39;mode=FAST_RUN,cuda.root=/usr/local/cuda,device=gpu,floatX=float32&amp;#39; python check1.py
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Woops:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ERROR&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;theano&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sandbox&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Failed&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;compile&lt;/span&gt; &lt;span class="n"&gt;cuda_ndarray&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cu&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;libcublas&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;so&lt;/span&gt;&lt;span class="mf"&gt;.6.0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;cannot&lt;/span&gt; &lt;span class="n"&gt;open&lt;/span&gt; &lt;span class="n"&gt;shared&lt;/span&gt; &lt;span class="n"&gt;object&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;No&lt;/span&gt; &lt;span class="n"&gt;such&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;directory&lt;/span&gt;
-&lt;span class="n"&gt;Looping&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt; &lt;span class="n"&gt;times&lt;/span&gt; &lt;span class="n"&gt;took&lt;/span&gt; &lt;span class="mf"&gt;9.06630682945&lt;/span&gt; &lt;span class="n"&gt;seconds&lt;/span&gt;
-&lt;span class="n"&gt;Used&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;cpu&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ERROR (theano.sandbox.cuda): Failed to compile cuda_ndarray.cu: libcublas.so.6.0: cannot open shared object file: No such file or directory
+Looping 1000 times took 9.06630682945 seconds
+Used the cpu
 
-&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;ldconfig&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib64&lt;/span&gt;
+sudo ldconfig /usr/local/cuda/lib64
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now we're good:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Using&lt;/span&gt; &lt;span class="n"&gt;gpu&lt;/span&gt; &lt;span class="n"&gt;device&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;GeForce&lt;/span&gt; &lt;span class="n"&gt;GTX&lt;/span&gt; &lt;span class="mi"&gt;560&lt;/span&gt; &lt;span class="n"&gt;Ti&lt;/span&gt;
-&lt;span class="n"&gt;Looping&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt; &lt;span class="n"&gt;times&lt;/span&gt; &lt;span class="n"&gt;took&lt;/span&gt; &lt;span class="mf"&gt;0.494688987732&lt;/span&gt; &lt;span class="n"&gt;seconds&lt;/span&gt;
-&lt;span class="n"&gt;Used&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;gpu&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Using gpu device 0: GeForce GTX 560 Ti
+Looping 1000 times took 0.494688987732 seconds
+Used the gpu
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Acceleration factor &lt;code&gt;9.0663 / 0.4946 = 18x&lt;/code&gt;, nice!&lt;/p&gt;
 &lt;h2&gt;Running Theano Deep Belief Network sample&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/lisa-lab/DeepLearningTutorials&lt;/span&gt;
-&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;DeepLearningTutorials&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;
-&lt;span class="n"&gt;THEANO_FLAGS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;mode&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;FAST_RUN&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;cuda&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;device&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;gpu&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;floatX&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;float32&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="n"&gt;DBN&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git clone http://github.com/lisa-lab/DeepLearningTutorials
+cd DeepLearningTutorials/code
+THEANO_FLAGS=&amp;#39;mode=FAST_RUN,cuda.root=/usr/local/cuda,device=gpu,floatX=float32&amp;#39; python DBN.py
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;It is running ~10x faster than the CPU version, nice!&lt;/p&gt;</summary><category term="deeplearning"></category><category term="python"></category><category term="machinelearning"></category></entry><entry><title>JOIN in SQL UPDATE statement</title><link href="/join-in-sql-update-statement.html" rel="alternate"></link><updated>2011-05-11T00:00:00+02:00</updated><author><name>Renaud Richardet</name></author><id>tag:,2011-05-11:join-in-sql-update-statement.html</id><summary type="html">&lt;p&gt;MySQL&lt;/p&gt;
 &lt;p&gt;JOIN in SQL UPDATE statement, differences between MS SQL and MySQL
 MySQL:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;UPDATE&lt;/span&gt; &lt;span class="n"&gt;contact&lt;/span&gt; &lt;span class="n"&gt;SET&lt;/span&gt; &lt;span class="n"&gt;contact&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;company_fk&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;team&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;company_fk&lt;/span&gt; &lt;span class="n"&gt;FROM&lt;/span&gt; &lt;span class="n"&gt;contact&lt;/span&gt;
-&lt;span class="n"&gt;INNER&lt;/span&gt; &lt;span class="n"&gt;JOIN&lt;/span&gt; &lt;span class="n"&gt;team&lt;/span&gt; &lt;span class="n"&gt;ON&lt;/span&gt; &lt;span class="n"&gt;team&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;contact&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;team_fk&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;UPDATE contact SET contact.company_fk = team.company_fk FROM contact
+INNER JOIN team ON team.id = contact.team_fk
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;MS SQL:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;UPDATE&lt;/span&gt; &lt;span class="n"&gt;contact&lt;/span&gt; &lt;span class="n"&gt;INNER&lt;/span&gt; &lt;span class="n"&gt;JOIN&lt;/span&gt; &lt;span class="n"&gt;team&lt;/span&gt; &lt;span class="n"&gt;ON&lt;/span&gt; &lt;span class="n"&gt;team&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;contact&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;team_fk&lt;/span&gt; &lt;span class="n"&gt;SET&lt;/span&gt;
-&lt;span class="n"&gt;contact&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;company_fk&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;team&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;company_fk&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;UPDATE contact INNER JOIN team ON team.id = contact.team_fk SET
+contact.company_fk = team.company_fk
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="sql"></category></entry></feed>

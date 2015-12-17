@@ -57,7 +57,7 @@
 <li>start server <code>bin/ruta_server</code> and check it at <code>http://localhost:8566/index.html</code></li>
 </ul>
 <h3>Apache RUTA</h3>
-<p>Ruta (<a href="https://uima.apache.org/ruta.html">site</a>, <a href="https://uima.apache.org/d/ruta-current/tools.ruta.book.html">documentation</a>) is a workbench to write NLP rules and test them. Apache RUTA is a great tool, and to expose it as a REST service (and thus allowing to annotate text), I created RUTA-server. It works with Linux, OS X, Windows, and requires a Java Runtime (1.7 or higher).</p>
+<p>Ruta (<a href="https://uima.apache.org/ruta.html">site</a>, <a href="https://uima.apache.org/d/ruta-current/tools.ruta.book.html">documentation</a>) is a workbench to write NLP rules and test them. Apache RUTA is a great tool, and to expose it as a REST service (and thus allowing to annotate text), I created <a href="">RUTA-server</a>. It works with Linux, OS X, Windows, and requires a Java Runtime (1.7 or higher).</p>
 <h3>First, let's create an Apache RUTA project:</h3>
 <ul>
 <li>If you don't already have it: install Eclipse (<a href="http://eclipse.org/downloads/">download</a>), or use your own, if recent enough.</li>
@@ -88,11 +88,9 @@
 <ul>
 <li>Click on the <code>script</code> folder in <code>ruta_server_example</code>.</li>
 <li>File &gt; New &gt; UIMA Ruta File, let's call it <code>Example.ruta</code>.</li>
-<li>
-<p>Add the following rules</p>
-<div class="highlight"><pre><span class="n">DECLARE</span> <span class="n">Year</span><span class="p">;</span>
-<span class="c1">// find something that maybe indicates the year: a number with four digits starting with 19 or 20</span>
-<span class="n">NUM</span><span class="p">{</span><span class="n">REGEXP</span><span class="p">(</span><span class="s">&quot;19..|20..&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MARK</span><span class="p">(</span><span class="n">Year</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)}</span> <span class="n">PM</span><span class="o">?</span><span class="p">;</span>
+<li>Add the following rules<div class="highlight"><pre>DECLARE Year;
+// find something that maybe indicates the year: a number with four digits starting with 19 or 20
+NUM{REGEXP(&quot;19..|20..&quot;) -&gt; MARK(Year,1,2)} PM?;
 </pre></div>
 
 
@@ -101,7 +99,7 @@
 </li>
 <li>
 <p>Add a sample document <code>mytest.txt</code> in <code>input</code> folder, with the following content</p>
-<div class="highlight"><pre>    <span class="n">The</span> <span class="n">year</span> <span class="mi">1956</span> <span class="n">should</span> <span class="n">get</span> <span class="n">annotated</span><span class="p">,</span> <span class="n">but</span> <span class="mi">21231</span> <span class="n">not</span> <span class="p">(</span><span class="n">yet</span><span class="p">).</span>
+<div class="highlight"><pre>    The year 1956 should get annotated, but 21231 not (yet).
 </pre></div>
 
 
@@ -133,7 +131,7 @@
 </ul>
 </li>
 <li>Finally, start the server by typing in a terminal <code>sh bin/ruta_server</code><ul>
-<li>The web service is at  <a href="http://localhost:8566/annotate.json?text=The%20year%201956%20should%20get%20annotated%20but%2021231%20not">http://localhost:8566/annotate.json</a></li>
+<li>The web service is at  <a href="http://localhost:8566/annotate.json?text=The year 1956 should get annotated but 21231 not">http://localhost:8566/annotate.json</a></li>
 <li>I also created a small <a href="http://localhost:8566/index.html">html demo</a></li>
 </ul>
 </li>
